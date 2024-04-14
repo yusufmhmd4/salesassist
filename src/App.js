@@ -2,35 +2,53 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { IoIosSearch } from "react-icons/io";
 import { CiUser, CiBookmark } from "react-icons/ci";
-import { MdOutlineShoppingBag ,MdCurrencyRupee} from "react-icons/md";
-import { TbShoppingBagPlus } from "react-icons/tb";
+import { MdOutlineShoppingBag } from "react-icons/md";
+import ProductItem from "./components/ProductItem";
+import { TailSpin } from "react-loader-spinner";
 
-
-import categoryList from "./categoryList"
-
+import categoryList from "./categoryList";
 
 import "./App.css";
-
 
 function App() {
   const [activeTabIcon, setActiveTabIcon] = useState(categoryList[0].id);
   const [productData, setProductData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getProductData() {
       try {
-        const response = await axios.get("https://dummyjson.com/products?limit=100");
+        setIsLoading(true);
+        const response = await axios.get(
+          "https://dummyjson.com/products?limit=100"
+        );
         const { products } = response.data;
-        const filteredData = products.filter((product) => product.category === activeTabIcon);
+        const filteredData = products.filter(
+          (product) => product.category === activeTabIcon
+        );
+        setIsLoading(false);
         setProductData(filteredData);
       } catch (error) {
         console.error("Error fetching product data:", error);
-
       }
     }
     getProductData();
   }, [activeTabIcon]);
   console.log(productData);
+
+  const reactLoader = ()=>(
+    <TailSpin
+      visible={true}
+      height="80"
+      width="80"
+      color="#fff"
+      ariaLabel="tail-spin-loading"
+      radius="1"
+      wrapperStyle={{}}
+      wrapperClass=""
+      className="loader"
+    />
+  );
 
   return (
     <div className="app-container">
@@ -74,42 +92,11 @@ function App() {
         ))}
       </ul>
       <ul className="product-list-container">
-        {productData.map((product) => {
-          const actualPrice = Math.round(
-            product.price - product.price * (product.discountPercentage / 100)
-          );
-          const offerPrice = Math.round(product.price - actualPrice);
-          const offerPercentage = Math.round(
-            (offerPrice / product.price) * 100
-          );
-
-          return (
-            <li className="product-item" key={product.id}>
-              <img
-                src={product.images[0]}
-                alt={product.title}
-                className="product-image"
-              />
-              <div className="product-title">{product.title}</div>
-              <div className="product-price-container">
-                <div>
-                  <span className="actual-price">
-                    <MdCurrencyRupee /> {actualPrice}
-                  </span>
-                  <span className="offer-price">{offerPrice}</span>
-                  <span className="offer-percentage">
-                    ( {offerPercentage} % )
-                  </span>
-                </div>
-
-                <span>
-                  <TbShoppingBagPlus className="add-bag-icon" />
-                </span>
-              </div>
-              <CiBookmark className="nav-icon bookmark" />
-            </li>
-          );
-        })}
+        {isLoading
+          ? reactLoader()
+          : productData.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
       </ul>
     </div>
   );
