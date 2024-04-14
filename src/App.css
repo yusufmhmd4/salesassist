@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0.8rem;
+  background-color: #0c0c0c;
+}
+@media screen and (min-width: 768px) {
+  .app-container {
+    padding: 1.4rem;
+  }
+}
+header {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem;
+}
+.title {
+  font-family: "Comme";
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.9rem;
+  color: #e5dfd9;
+}
+@media screen and (max-width:768px) {
+  .title{
+    font-size: 13px;
+    letter-spacing: 0.6rem;
+  }
+  
+}
+@media screen and (max-width:500) {
+  .title{
+    font-size: 12px;
+    letter-spacing: 0.1rem;
+  }
+  
+}
+.nav-icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  color: #e5dfd9;
+  cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+  .nav-icon{
+    width: 22px;
+  }
+}
+@media screen and (max-width:500px) {
+  .nav-icon{
+    width: 20px;
+  }
+}
+.nav-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  gap: 2.5rem;
+  margin: 1.5rem 0.4rem;
+}
+
+.nav-link {
+  font-family: "Encode Sans";
+  font-size: 14px;
+  font-weight: 400;
+  color: #e5dfd9;
+  letter-spacing: .1rem;
+}
+@media screen and (max-width:768px){
+  .nav-links-container{
+    margin: 1rem 2px;
+    gap: 1.6rem;
+  }
+  .nav-link{
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+}
+@media screen and (max-width:500px){
+  .nav-links-container{
+    margin: 1rem 2px;
+    gap: 1.5rem;
+  }
+  .nav-link{
+    font-size: 11px;
+    letter-spacing: 0px;
+  }
+}
+
+.active-tab-icon-container{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  overflow-x: auto;
+  margin: auto;
+  gap: 1rem;
+  margin-top: 50px;
+
+}
+
+@media screen and (max-width:768px) {
+  .active-tab-icon-container{
+    margin-top: 4px;
+  }
+  
+}
+.active-tab-icon-container::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+
+.tab-item{
+  display: inline-block;
+  width: 200px;
+  margin: 10px;
+  font-size: 55px;
+  color: #494746;
+  cursor: pointer;
+}
+.active{
+  color: #fff;
+}
+
+.product-list-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  color: #fff;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.product-item{
+ width: 300px;
+  min-height: 450px;
+  background-color: #141414;
+  border-radius: 6px;
+  position: relative;
+  padding-bottom: 4px;
+
+}
+.product-image{
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.product-title{
+  font-family: 'Encode Sans';
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #e5dfd9;
+}
+
+.product-price-container{
+  display: flex;
+ justify-content: space-between ;
+  align-items: flex-end;
+  margin-left: 20px;
+  margin-top: 20px;
+  gap: 8px;
+}
+.actual-price{
+  font-family:'Encode Sans' ;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 10px;
+  
+  
+}
+.offer-price{
+  font-family:'Encode Sans' ;
+  color: #E5DFD9;
+  font-size: 10px;
+  font-weight: 400;
+  margin-right: 10px;
+  
+  
+}
+
+.offer-percentage{
+  font-family:'Encode Sans' ;
+  color: #2FC14F;
+  font-size: 10px;
+  font-weight: 400;
+
+}
+
+.add-bag-icon{
+  font-size: 28px;
+  margin-right: 10px;
+  cursor: pointer;
+ 
+}
+
+.bookmark{
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: #000;
+  font-weight: 600;
+  
+}
+
