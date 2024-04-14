@@ -36,7 +36,7 @@ function ProductItem({product}) {
           <TbShoppingBagPlus className="add-bag-icon" />
         </span>
       </div>
-      <CiBookmark className="nav-icon bookmark" />
+      <CiBookmark className="bookmark" />
     </li>
   );
 }
