@@ -20,4 +20,6 @@ TANN TRIM is a web application designed to showcase and browse various products.
 3. **Start the development server:**
    ```bash
    npm start
+## Netifly Deployed : https://saleassi.netlify.app/
+
 ## Vercel Deployed :  https://salesassist-six.vercel.app/
